@@ -18,7 +18,10 @@
   },
   "plugins": ["react"],
   "rules": {
-    
+    "no-unused-expressions": [2, {
+      "allowShortCircuit": true,
+      "allowTernary": true
+    }]
   },
   "settings": {
     "import/resolver": {

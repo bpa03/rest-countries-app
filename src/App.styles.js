@@ -1,5 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import nunitoSansFont from 'config/fonts';
+import {
+  nunitoSansFont,
+  fontSizeDefault,
+  fontSizeMobile,
+} from 'config/fonts';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -7,6 +11,13 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    font-size: ${fontSizeMobile};
+  }
+
+  @media only screen and (min-width: 768px) {
+    html {
+      font-size: ${fontSizeDefault};
+    }
   }
 
   *,
@@ -23,10 +34,16 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${nunitoSansFont};
     font-weight: 300;
+    background-color: ${({ theme: { theme } }) => theme.background};
+    transition: background .3s;
   }
 
   h1, h2, h3, h4, h5 {
     font-weight: bold;
+  }
+
+  a {
+    text-decoration: none;
   }
 
 `;
