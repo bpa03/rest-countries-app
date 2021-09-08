@@ -21,7 +21,8 @@
     "no-unused-expressions": [2, {
       "allowShortCircuit": true,
       "allowTernary": true
-    }]
+    }],
+    "react/prop-types": [0]
   },
   "settings": {
     "import/resolver": {

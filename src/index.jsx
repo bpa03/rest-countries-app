@@ -4,6 +4,8 @@ import RestCountriesApp from 'App';
 
 // Material icons
 import 'material-icons/iconfont/material-icons.css';
+// Css index
+import 'index.css';
 
 ReactDOM.render(
   <RestCountriesApp />,

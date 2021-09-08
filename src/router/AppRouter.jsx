@@ -7,10 +7,9 @@ import {
 } from 'react-router-dom';
 
 import Header from 'layout/header/Header';
+import Countries from 'pages/countries/Countries';
 
 const Country = () => <h1>Country</h1>;
-
-const Countries = () => <h1>Countries</h1>;
 
 const AppRouter = () => (
   <Router>

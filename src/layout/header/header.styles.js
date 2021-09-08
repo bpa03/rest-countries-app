@@ -23,7 +23,7 @@ export const Content = styled.div`
 
 export const Title = styled(Link)`
   color: inherit;
-  font-weight: 600;
+  font-weight: bold;
   font-style: normal;
   font-size: 1.462rem;
   line-height: initial;
@@ -50,6 +50,7 @@ export const SwitchButton = styled.div`
 export const Mode = styled.span`
   font-size: inherit;
   margin: 0 0 0 12px;
+  font-weight: 600;
 `;
 
 export const DarkModeIcon = styled(Icon)`
