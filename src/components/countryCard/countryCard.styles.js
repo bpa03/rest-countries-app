@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-  margin: 30px auto;
-  width: 280px;
+  width: auto;
   height: auto;
   background: ${({ theme: { theme } }) => theme.backgroundElements};
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, .1);
-  transition: background .3s;
+  transition: background .3s, transform .3s;
   border-radius: 5px;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 export const CardBody = styled.div`
   width: 100%;
   height: auto;
-  padding: 30px 10px 40px 30px;
+  padding: 30px 15px 40px 30px;
 `;
 
 export const CardTitle = styled.h2`
@@ -22,7 +25,7 @@ export const CardTitle = styled.h2`
 
 export const CardHeader = styled.div`
   width: 100%;
-  height: auto;
+  height: 180px;
 `;
 
 export const CardData = styled.div`
@@ -33,15 +36,22 @@ export const CardData = styled.div`
   margin: 22px 0 0 0;
 `;
 
-export const Data = styled.p`
+export const Data = styled.div`
   font-weight: 700;
   font-style: normal;
+`;
+
+export const Key = styled.p`
+  font-weight: inherit;
+  font-style: inherit;
+  display: inline-block;
 `;
 
 export const Value = styled.span`
   font-weight: 400;
   font-style: normal;
   margin-left: 6px;
+  display: inline-block;
 `;
 
 export const CardImage = styled.img`

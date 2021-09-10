@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import useFetch from 'hooks/useFetch';
-import CountryCard from 'components/countryCard/CountryCard';
+import CountryList from 'components/countryList/CountryList';
 
 import Container from './countries.styles';
 
@@ -11,10 +11,20 @@ const Countries = () => {
 
   const { loading, data } = values;
 
+  const countries = useMemo(() => {
+    if (data.length) {
+      return data.filter((country) => country.region === 'Europe');
+    }
+
+    return true;
+  }, [data]);
+
   return (
     <Container>
-      {loading ? <h1>Hello, World!</h1> : (
-        <CountryCard country={data[0]} />
+      {loading ? (
+        <h1>Hello, World!</h1>
+      ) : (
+        <CountryList countries={countries} />
       )}
     </Container>
   );

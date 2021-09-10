@@ -9,12 +9,11 @@ import {
   CardData,
   Data,
   Value,
+  Key,
 } from './countryCard.styles';
 
 const CountryCard = ({
-  country: {
-    name, flag, region, population, capital,
-  },
+  name, flag, region, population, capital,
 }) => (
   <Card>
     <CardHeader>
@@ -24,22 +23,16 @@ const CountryCard = ({
       <CardTitle>{name}</CardTitle>
       <CardData>
         <Data>
-          Population:
-          <Value>
-            {population.toLocaleString()}
-          </Value>
+          <Key>Population:</Key>
+          <Value>{population}</Value>
         </Data>
         <Data>
-          Region:
-          <Value>
-            {region}
-          </Value>
+          <Key>Region:</Key>
+          <Value>{region}</Value>
         </Data>
         <Data>
-          Capital:
-          <Value>
-            {capital}
-          </Value>
+          <Key>Capital:</Key>
+          <Value>{capital}</Value>
         </Data>
       </CardData>
     </CardBody>
