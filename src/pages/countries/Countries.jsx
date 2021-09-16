@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import useFetch from 'hooks/useFetch';
 import CountryList from 'components/countryList/CountryList';
+import Loader from 'components/loader/Loader';
 
 import Container from './countries.styles';
 
@@ -22,7 +23,7 @@ const Countries = () => {
   return (
     <Container>
       {loading ? (
-        <h1>Hello, World!</h1>
+        <Loader />
       ) : (
         <CountryList countries={countries} />
       )}

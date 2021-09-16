@@ -1,5 +1,7 @@
 import React from 'react';
 
+import DataView from 'components/dataView/DataView';
+
 import {
   Card,
   CardHeader,
@@ -7,9 +9,6 @@ import {
   CardTitle,
   CardImage,
   CardData,
-  Data,
-  Value,
-  Key,
 } from './countryCard.styles';
 
 const CountryCard = ({
@@ -22,18 +21,9 @@ const CountryCard = ({
     <CardBody>
       <CardTitle>{name}</CardTitle>
       <CardData>
-        <Data>
-          <Key>Population:</Key>
-          <Value>{population}</Value>
-        </Data>
-        <Data>
-          <Key>Region:</Key>
-          <Value>{region}</Value>
-        </Data>
-        <Data>
-          <Key>Capital:</Key>
-          <Value>{capital}</Value>
-        </Data>
+        <DataView propertyKey="Population" value={population} />
+        <DataView propertyKey="Region" value={region} />
+        <DataView propertyKey="Capital" value={capital} />
       </CardData>
     </CardBody>
   </Card>
