@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import useFetch from 'hooks/useFetch';
+import useCountries from 'hooks/useCountries';
 import CountryList from 'components/countryList/CountryList';
 import Loader from 'components/loader/Loader';
 import Searcher from 'layout/searcher/Searcher';
@@ -8,9 +8,7 @@ import Searcher from 'layout/searcher/Searcher';
 import Container from './countries.styles';
 
 const Countries = () => {
-  const url = 'https://restcountries.eu/rest/v2/all';
-  const values = useFetch(url);
-
+  const values = useCountries();
   const { loading, data } = values;
 
   const countries = useMemo(() => {

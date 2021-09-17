@@ -1,41 +1,41 @@
 import { useState, useEffect, useRef } from 'react';
 
-function useFetch(url) {
+import getAllCountries from 'services/getAllCountries';
+
+function useCountries() {
   const isMounted = useRef(true);
   const [values, setValues] = useState({
-    loading: true,
     data: [],
-    error: null,
+    loading: true,
   });
 
   useEffect(
     () => () => {
       isMounted.current = false;
-    }, [],
+    },
+    [],
   );
 
   useEffect(() => {
-    if (!isMounted.current || url === '') {
+    if (!isMounted.current) {
       return;
     }
 
     const fetchData = () => {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          setValues((prevValues) => ({
-            ...prevValues,
-            loading: false,
-            data,
-          }));
-        });
+      getAllCountries().then((data) => {
+        setValues((prevValues) => ({
+          ...prevValues,
+          loading: false,
+          data,
+        }));
+      });
     };
 
     setValues((prevState) => ({ ...prevState, loading: true }));
     fetchData();
-  }, [url]);
+  }, []);
 
   return values;
 }
 
-export default useFetch;
+export default useCountries;
