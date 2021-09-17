@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import useFetch from 'hooks/useFetch';
 import CountryList from 'components/countryList/CountryList';
 import Loader from 'components/loader/Loader';
+import Searcher from 'layout/searcher/Searcher';
 
 import Container from './countries.styles';
 
@@ -22,11 +23,8 @@ const Countries = () => {
 
   return (
     <Container>
-      {loading ? (
-        <Loader />
-      ) : (
-        <CountryList countries={countries} />
-      )}
+      <Searcher />
+      {loading ? <Loader /> : <CountryList countries={countries} />}
     </Container>
   );
 };

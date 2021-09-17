@@ -27,6 +27,13 @@ ul {
   list-style: none;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="name"] {
+  border: none;
+  outline: none
+}
+
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
