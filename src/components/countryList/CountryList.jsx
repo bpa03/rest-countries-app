@@ -8,18 +8,20 @@ const CountryList = ({ countries }) => (
   <ListContainer>
     <List>
       {countries.map(({
-        name, flag, region, capital, population,
+        name, flags, region, capital, population, numericCode,
       }) => {
         // Formatted properties
         const formattedPopulation = population.toLocaleString();
+        const svgFlag = flags[0];
 
         return (
           <CountryCard
             name={name}
-            flag={flag}
+            flag={svgFlag}
             region={region}
             capital={capital}
             population={formattedPopulation}
+            key={numericCode}
           />
         );
       })}

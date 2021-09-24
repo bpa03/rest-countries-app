@@ -12,7 +12,7 @@ import {
 } from './countryCard.styles';
 
 const CountryCard = ({
-  name, flag, region, population, capital,
+  name, flag, region, capital, population,
 }) => (
   <Card>
     <CardHeader>
@@ -21,9 +21,9 @@ const CountryCard = ({
     <CardBody>
       <CardTitle>{name}</CardTitle>
       <CardData>
-        <DataView propertyKey="Population" value={population} />
         <DataView propertyKey="Region" value={region} />
         <DataView propertyKey="Capital" value={capital} />
+        <DataView propertyKey="Population" value={population} />
       </CardData>
     </CardBody>
   </Card>

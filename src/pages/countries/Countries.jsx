@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import useCountries from 'hooks/useCountries';
+import { useStore } from 'context/context';
 import CountryList from 'components/countryList/CountryList';
 import Loader from 'components/loader/Loader';
 import Searcher from 'layout/searcher/Searcher';
@@ -8,21 +8,21 @@ import Searcher from 'layout/searcher/Searcher';
 import Container from './countries.styles';
 
 const Countries = () => {
-  const values = useCountries();
-  const { loading, data } = values;
+  const values = useStore();
+  const { loading, countries } = values;
 
-  const countries = useMemo(() => {
-    if (data.length) {
-      return data.filter((country) => country.region === 'Europe');
+  const data = useMemo(() => {
+    if (countries.length) {
+      return countries.filter((country) => country.continent === 'Europe');
     }
 
     return true;
-  }, [data]);
+  }, [countries]);
 
   return (
     <Container>
       <Searcher />
-      {loading ? <Loader /> : <CountryList countries={countries} />}
+      {loading ? <Loader /> : <CountryList countries={data} />}
     </Container>
   );
 };
