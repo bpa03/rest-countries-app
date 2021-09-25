@@ -1,15 +1,14 @@
-import React, { useState, useMemo } from 'react';
-import QueryString from 'query-string';
-import { useHistory, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Input from 'components/input/Input';
+import useSearchQuery from 'hooks/useSearchQuery';
 
 import Form from './searcher.styles';
 
 const Searcher = () => {
   const history = useHistory();
-  const location = useLocation();
-  const { q = '' } = useMemo(() => QueryString.parse(location.search), [location]);
+  const { q = '' } = useSearchQuery();
   const [values, setValues] = useState({
     query: q,
     continent: '',
