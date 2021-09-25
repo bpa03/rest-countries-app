@@ -15,9 +15,9 @@ const AppRouter = () => (
   <Router>
     <Header />
     <Switch>
-      <Route exact component={Countries} path="/" />
+      <Route exact component={Countries} path="/countries" />
       <Route exact component={Country} path="/country" />
-      <Redirect to="/" />
+      <Redirect to="/countries" />
     </Switch>
   </Router>
 );
