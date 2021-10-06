@@ -11,7 +11,10 @@ const CountriesContext = createContext(null);
 const INITIAL_STATE = {
   loading: true,
   countries: [],
-  filters: '',
+  filters: {
+    searchQuery: '',
+    regionFilter: 'Europe',
+  },
 };
 
 export default function CountriesProvider({ children }) {
@@ -42,6 +45,13 @@ export function useCountriesContext() {
   }
 
   return context;
+}
+
+export function useDispatch() {
+  const store = useCountriesContext();
+  const { dispatch } = store;
+
+  return dispatch;
 }
 
 export function useStore(callback) {

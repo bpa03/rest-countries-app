@@ -1,35 +1,37 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 
+import { useDispatch } from 'context/context';
+import { setCountriesRegionFilter, setSearchQuery } from 'context/countries/countries.actions';
 import Input from 'components/input/Input';
-import useSearchQuery from 'hooks/useSearchQuery';
+import Select from 'components/select/Select';
+import useForm from 'hooks/useForm';
 
 import Form from './searcher.styles';
 
 const Searcher = () => {
-  const history = useHistory();
-  const { q = '' } = useSearchQuery();
-  const [values, setValues] = useState({
-    query: q,
-    continent: '',
+  const dispatch = useDispatch();
+  const { values, handleChange } = useForm({
+    query: '',
+    options: [
+      { value: 'Africa' },
+      { value: 'Americas' },
+      { value: 'Asia' },
+      { value: 'Europe' },
+      { value: 'Oceania' },
+    ],
   });
+
+  const { query, options } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { query } = values;
-
-    history.push(`?query=${query}`);
+    dispatch(setSearchQuery(query));
   };
 
-  const handleChange = (e) => {
-    setValues((prevValues) => ({
-      ...prevValues,
-      [e.target.name]: e.target.value,
-    }));
+  const handleSelectChange = (e) => {
+    dispatch(setCountriesRegionFilter(e.target.value));
   };
-
-  const { query } = values;
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -39,6 +41,12 @@ const Searcher = () => {
         value={query}
         handleChange={handleChange}
         name="query"
+      />
+      <Select
+        options={options}
+        placeholder="Filter By Continent"
+        name="region"
+        handleChange={handleSelectChange}
       />
     </Form>
   );

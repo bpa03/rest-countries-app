@@ -5,23 +5,28 @@ import CountryList from 'components/countryList/CountryList';
 import Loader from 'components/loader/Loader';
 import Searcher from 'layout/searcher/Searcher';
 import getCountriesByName from 'lib/getCountriesByName';
-import useSearchQuery from 'hooks/useSearchQuery';
+import getCountriesByRegion from 'lib/getCountriesByRegion';
 
 import Container from './countries.styles';
 
 const Countries = () => {
-  const { loading, countries } = useStore();
-  const { query = '' } = useSearchQuery();
+  const {
+    loading,
+    countries,
+    filters: { regionFilter, searchQuery },
+  } = useStore();
 
   const data = useMemo(() => {
-    if (!query) {
-      return countries.filter(({ continent }) => continent === 'Europe');
+    let countriesFiltered;
+
+    if (searchQuery !== '') {
+      countriesFiltered = getCountriesByName(countries, searchQuery);
     }
 
-    const countriesFiltered = getCountriesByName(countries, query);
+    countriesFiltered = getCountriesByRegion(countriesFiltered || countries, regionFilter);
 
     return countriesFiltered;
-  }, [countries, query]);
+  }, [countries, regionFilter, searchQuery]);
 
   return (
     <Container>

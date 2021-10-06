@@ -7,7 +7,7 @@ const Container = styled.div`
   position: relative;
   color: ${({ theme: { theme } }) => theme.fontColor};
   transition: color .3s;
-  padding: 25px 0;
+  padding: 25px 0 60px 0;
 `;
 
 export default Container;
