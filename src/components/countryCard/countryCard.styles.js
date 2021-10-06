@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Card = styled.div`
   width: auto;
   height: auto;
-  background: ${({ theme: { theme } }) => theme.backgroundElements};
+  background: var(--bg-elements);
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, .1);
   transition: background .3s, transform .3s;
   border-radius: 5px;

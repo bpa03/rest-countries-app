@@ -16,7 +16,7 @@ export const SelectBox = styled.div`
   display: block;
   width: 220px;
   margin: 0 auto;
-  color: ${({ theme: { theme } }) => theme.fontColor};
+  color: var(--font);
   font-family: ${nunitoSansFont};
   margin: 20px 0 0 0;
 `;
@@ -29,7 +29,7 @@ export const CurrentSelect = styled.div`
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, 0.1);
   font-weight: 600;
   border-radius: 4px;
-  background-color: ${({ theme: { theme } }) => theme.backgroundElements};
+  background-color: var(--bg-elements);
   transition: background 0.3s;
   font-size: .875rem;
   cursor: pointer;
@@ -49,10 +49,10 @@ export const BoxList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  opacity: ${({ show }) => (show ? '1' : '0')};
   transition: background 0.3s, opacity .3s, top .3s;
-  background-color: ${({ theme: { theme } }) => theme.backgroundElements};
+  background-color: var(--bg-elements);
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, 0.1);
+  opacity: ${({ show }) => (show ? '1' : '0')};
   top: ${({ show }) => (show ? '60px' : '70px')};
   z-index: 1;
 `;

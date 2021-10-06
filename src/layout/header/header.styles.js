@@ -5,7 +5,7 @@ import Icon from 'components/icon/Icon';
 export const Container = styled.div`
   height: 100px;
   width: 100%;
-  background: ${({ theme: { theme } }) => theme.backgroundElements};
+  background: var(--bg-elements);
   transition: background 0.3s;
   box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.4);
 `;
@@ -16,7 +16,7 @@ export const Content = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  color: ${({ theme: { theme } }) => theme.fontColor};
+  color: var(--font);
   transition: color 0.3s;
   align-items: center;
 `;

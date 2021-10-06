@@ -1,15 +1,19 @@
 import { createGlobalStyle } from 'styled-components';
-import {
-  nunitoSansFont,
-  fontSizeDefault,
-  fontSizeMobile,
-} from 'config/fonts';
+import { nunitoSansFont, fontSizeDefault, fontSizeMobile } from 'config/fonts';
 
 const GlobalStyles = createGlobalStyle`
+
+  :root {
+    --background: ${({ theme: { theme } }) => theme.background};
+    --bg-elements: ${({ theme: { theme } }) => theme.backgroundElements};
+    --bg-input: ${({ theme: { theme } }) => theme.inputBgColor};
+    --font: ${({ theme: { theme } }) => theme.fontColor};
+  }
 
   html {
     box-sizing: border-box;
     font-size: ${fontSizeMobile};
+    background-color: var(--background);
   }
 
   @media only screen and (min-width: 768px) {

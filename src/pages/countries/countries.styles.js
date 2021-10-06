@@ -5,7 +5,7 @@ const Container = styled.div`
   height: auto;
   margin: 0 auto;
   position: relative;
-  color: ${({ theme: { theme } }) => theme.fontColor};
+  color: var(--font);
   transition: color .3s;
   padding: 25px 0 60px 0;
 `;
