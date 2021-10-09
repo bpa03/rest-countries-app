@@ -13,7 +13,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: ${fontSizeMobile};
-    background-color: var(--background);
   }
 
   @media only screen and (min-width: 768px) {
@@ -25,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${nunitoSansFont};
     font-weight: 300;
-    background-color: ${({ theme: { theme } }) => theme.background};
+    background: var(--background);
     transition: background .3s;
   }
 `;

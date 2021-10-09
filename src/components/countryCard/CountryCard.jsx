@@ -14,7 +14,7 @@ import {
 const CountryCard = ({
   name, flag, region, capital, population,
 }) => (
-  <Card>
+  <Card to={`/country/${name}`}>
     <CardHeader>
       <CardImage src={flag} alt="country-image" />
     </CardHeader>

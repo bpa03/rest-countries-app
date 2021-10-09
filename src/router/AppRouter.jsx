@@ -8,15 +8,14 @@ import {
 
 import Header from 'layout/header/Header';
 import Countries from 'pages/countries/Countries';
-
-const Country = () => <h1>Country</h1>;
+import Country from 'pages/countryView/Country';
 
 const AppRouter = () => (
   <Router>
     <Header />
     <Switch>
       <Route exact component={Countries} path="/countries" />
-      <Route exact component={Country} path="/country" />
+      <Route exact component={Country} path="/country/:country" />
       <Redirect to="/countries" />
     </Switch>
   </Router>
