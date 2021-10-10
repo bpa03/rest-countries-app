@@ -7,5 +7,5 @@ export const Container = styled.div`
   margin: 0 auto;
   color: var(--font);
   transition: color .3s;
-  padding: 60px 0;
+  padding: 45px 0;
 `;
