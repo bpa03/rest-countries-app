@@ -11,9 +11,9 @@ import {
 } from './select.styles';
 
 const Select = ({
-  options, placeholder, handleChange, name,
+  options, initialValue, handleChange, name,
 }) => {
-  const [select, setSelect] = useState(placeholder);
+  const [select, setSelect] = useState(initialValue);
   const [show, setShow] = useState(false);
 
   const handleCloseList = () => {

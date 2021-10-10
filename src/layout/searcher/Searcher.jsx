@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDispatch } from 'context/context';
+import { useDispatch, useStore } from 'context/context';
 import { setCountriesRegionFilter, setSearchQuery } from 'context/countries/countries.actions';
 import Input from 'components/input/Input';
 import Select from 'components/select/Select';
@@ -10,8 +10,9 @@ import Form from './searcher.styles';
 
 const Searcher = () => {
   const dispatch = useDispatch();
+  const { filters: { searchQuery, regionFilter } } = useStore();
   const { values, handleChange } = useForm({
-    query: '',
+    query: searchQuery,
     options: [
       { value: 'Africa' },
       { value: 'Americas' },
@@ -44,7 +45,7 @@ const Searcher = () => {
       />
       <Select
         options={options}
-        placeholder="Filter By Continent"
+        initialValue={regionFilter}
         name="region"
         handleChange={handleSelectChange}
       />
