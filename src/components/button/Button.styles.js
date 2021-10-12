@@ -13,6 +13,10 @@ export const BaseLink = styled(Link)`
   border-radius: 3px;
   transition: background .3s, color .3s;
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, .1);
+
+  @media only screen and (min-width: 996px) {
+    font-size: 1rem;
+  }
 `;
 
 export const IconLink = styled(Icon)`

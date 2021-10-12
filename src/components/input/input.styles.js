@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Icon from 'components/icon/Icon';
 
 export const InputBase = styled.input`
-  width: 100%;
   height: auto;
-  padding: 17px 10px 17px 60px;
+  width: 100%;
+  padding: 17px 40px 17px 60px;
   color: var(--font);
   background-color: var(--bg-elements);
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, .1);
@@ -13,6 +13,11 @@ export const InputBase = styled.input`
   font-weight: 600;
   border-radius: 3px;
   transition: background-color .3s, color .3s;
+
+  @media only screen and (min-width: 768px) {
+    padding: 17px 30px 17px 60px;
+    width: auto;
+  }
 
   &::placeholder {
     color: var(--font);

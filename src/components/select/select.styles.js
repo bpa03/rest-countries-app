@@ -15,10 +15,8 @@ export const SelectBox = styled.div`
   position: relative;
   display: block;
   width: 220px;
-  margin: 0 auto;
   color: var(--font);
   font-family: ${nunitoSansFont};
-  margin: 20px 0 0 0;
 `;
 
 export const CurrentSelect = styled.div`
@@ -54,7 +52,7 @@ export const BoxList = styled.ul`
   box-shadow: 0px 0px 5px 5px rgba(29, 44, 56, 0.1);
   opacity: ${({ show }) => (show ? '1' : '0')};
   top: ${({ show }) => (show ? '60px' : '70px')};
-  z-index: 1;
+  z-index: ${({ show }) => (show ? '2' : '1')};
 `;
 
 export const BoxListItem = styled.li`

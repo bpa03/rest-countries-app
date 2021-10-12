@@ -18,11 +18,15 @@ export const Card = styled(Link)`
 export const CardBody = styled.div`
   width: 100%;
   height: auto;
-  padding: 30px 15px 40px 30px;
+  padding: 40px 15px 50px 30px;
 `;
 
 export const CardTitle = styled.h2`
   font-size: 1.6rem;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const CardHeader = styled.div`
@@ -36,6 +40,10 @@ export const CardData = styled.div`
   font-size: 1.1rem;
   gap: 10px;
   margin: 22px 0 0 0;
+
+  @media only screen and (min-width: 768px) {
+    font-size: .89rem;
+  }
 `;
 
 export const Data = styled.div`

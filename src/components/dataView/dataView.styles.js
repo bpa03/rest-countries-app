@@ -15,5 +15,5 @@ export const Value = styled.span`
   font-weight: 400;
   font-style: normal;
   margin-left: 6px;
-  display: inline-block;
+  display: inline;
 `;
