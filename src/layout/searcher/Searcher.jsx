@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch, useStore } from 'context/context';
 import { setCountriesRegionFilter, setSearchQuery } from 'context/countries/countries.actions';
 import Input from 'components/input/Input';
 import Select from 'components/select/Select';
-import useForm from 'hooks/useForm';
 
 import Form from './searcher.styles';
 
 const Searcher = () => {
   const dispatch = useDispatch();
   const { filters: { searchQuery, regionFilter } } = useStore();
-  const { values, handleChange } = useForm({
+  const [values, setValues] = useState({
     query: searchQuery,
     options: [
       { value: 'Africa' },
@@ -26,8 +25,15 @@ const Searcher = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
 
-    dispatch(setSearchQuery(query));
+  const handleChange = (e) => {
+    e.preventDefault();
+    setValues(({
+      ...values,
+      [e.target.name]: e.target.value,
+    }));
+    dispatch(setSearchQuery(e.target.value));
   };
 
   const handleSelectChange = (e) => {
