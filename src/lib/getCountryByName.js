@@ -1,3 +1,4 @@
 export default function getCountryByName(countries, countryName) {
-  return countries.find(({ name }) => name.toLowerCase().includes(countryName.toLowerCase()));
+  const regex = new RegExp(`^${countryName}$`, 'i');
+  return countries.find(({ name }) => regex.test(name));
 }

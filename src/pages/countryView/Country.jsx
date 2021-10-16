@@ -5,6 +5,8 @@ import { useStore } from 'context/context';
 import getCountryByName from 'lib/getCountryByName';
 import CountryScreen from 'components/countryScreen/CountryScreen';
 import LinkButton from 'components/button/Button';
+import Loader from 'components/loader/Loader';
+import ErrorView from 'components/errorView/ErrorView';
 
 import { Container } from './country.styles';
 
@@ -22,7 +24,16 @@ const Country = () => {
       <LinkButton to="/countrys" icon="west">
         Back
       </LinkButton>
-      {!loading && <CountryScreen country={countryFiltered} />}
+      {loading && <Loader />}
+      {!loading && countryFiltered && (
+        <CountryScreen country={countryFiltered} />
+      )}
+      {!countryFiltered && !loading && (
+        <ErrorView
+          title="Search Error"
+          description={`The country with name "${country}" was not found :(`}
+        />
+      )}
     </Container>
   );
 };

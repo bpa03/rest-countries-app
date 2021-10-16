@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { useStore } from 'context/context';
 import CountryList from 'components/countryList/CountryList';
@@ -10,27 +10,40 @@ import getCountriesByRegion from 'lib/getCountriesByRegion';
 import Container from './countries.styles';
 
 const Countries = () => {
+  const [values, setValues] = useState({
+    query: '',
+    region: 'Europe',
+    options: [
+      { value: 'Africa' },
+      { value: 'Americas' },
+      { value: 'Asia' },
+      { value: 'Europe' },
+      { value: 'Oceania' },
+    ],
+  });
+
+  const { query, region } = values;
+
   const {
     loading,
     countries,
-    filters: { regionFilter, searchQuery },
   } = useStore();
 
   const data = useMemo(() => {
     let countriesFiltered;
 
-    if (searchQuery !== '') {
-      countriesFiltered = getCountriesByName(countries, searchQuery);
+    if (query !== '') {
+      countriesFiltered = getCountriesByName(countries, query);
     }
 
-    countriesFiltered = getCountriesByRegion(countriesFiltered || countries, regionFilter);
+    countriesFiltered = getCountriesByRegion(countriesFiltered || countries, region);
 
     return countriesFiltered;
-  }, [countries, regionFilter, searchQuery]);
+  }, [countries, query, region]);
 
   return (
     <Container>
-      <Searcher />
+      <Searcher values={values} setValues={setValues} />
       {loading ? <Loader /> : <CountryList countries={data} />}
     </Container>
   );
